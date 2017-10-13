@@ -1,0 +1,148 @@
+{
+   "services":[
+      {
+         "name":"apb-push-rareddyapb-ext-postgres-apb",
+         "id":"67e22ee40083614bb0826d69a8f5f1b6",
+         "description":"The connection service to external on premises Postgres Database",
+         "tags":[
+            "database",
+            "rdbms",
+            "on_premise"
+         ],
+         "bindable":true,
+         "metadata":{
+            "displayName":"PostgreSQL(On Premise)",
+            "documentationUrl":"https://www.postgresql.org/",
+            "imageUrl":"https://wiki.postgresql.org/images/3/30/PostgreSQL_logo.3colors.120x120.png",
+            "longDescription":"Connection to on premises Postgres Database which is hosted outside of cloud environment. This will be accessed either through a proxy or VPN connection for security reasons"
+         },
+         "plans":[
+            {
+               "id":"default",
+               "name":"default",
+               "description":"Service Broker for creating connections to external Postgres database",
+               "metadata":{
+                  "cost":"$0.00",
+                  "displayName":"Default",
+                  "longDescription":"This plan deploys a Postgres Database, if the defined database is not available it tries to create one.",
+                  "schemas":{
+                     "service_binding":{
+                        "create":{
+                           "openshift_form_definition":[
+                              "postgresql_database",
+                              "postgresql_schema",
+                              "postgresql_host",
+                              "postgresql_port",
+                              "postgresql_user",
+                              "postgresql_password"
+                           ]
+                        }
+                     },
+                     "service_instance":{
+                        "create":{
+                           "openshift_form_definition":[
+                              "postgresql_database",
+                              "postgresql_schema",
+                              "postgresql_host",
+                              "postgresql_port",
+                              "postgresql_user",
+                              "postgresql_password"
+                           ]
+                        },
+                        "update":{
+
+                        }
+                     }
+                  }
+               },
+               "free":true,
+               "schemas":{
+                  "service_instance":{
+                     "create":{
+                        "parameters":{
+                           "$schema":"http://json-schema.org/draft-04/schema",
+                           "additionalProperties":false,
+                           "properties":{
+                              "postgresql_database":{
+                                 "default":"test",
+                                 "title":"PostgreSQL Database Name",
+                                 "type":"string"
+                              },
+                              "postgresql_host":{
+                                 "title":"PostgreSQL Database Host",
+                                 "type":"string"
+                              },
+                              "postgresql_password":{
+                                 "default":"lenord",
+                                 "title":"PostgreSQL Password",
+                                 "type":"string"
+                              },
+                              "postgresql_port":{
+                                 "default":5432,
+                                 "title":"PostgreSQL Database Port",
+                                 "type":"integer"
+                              },
+                              "postgresql_schema":{
+                                 "default":"public",
+                                 "title":"PostgreSQL Database Schema Name",
+                                 "type":"string"
+                              },
+                              "postgresql_user":{
+                                 "default":"lenny",
+                                 "title":"PostgreSQL User",
+                                 "type":"string"
+                              }
+                           },
+                           "type":"object"
+                        }
+                     },
+                     "update":{
+
+                     }
+                  },
+                  "service_binding":{
+                     "create":{
+                        "parameters":{
+                           "$schema":"http://json-schema.org/draft-04/schema",
+                           "additionalProperties":false,
+                           "properties":{
+                              "postgresql_database":{
+                                 "default":"test",
+                                 "title":"PostgreSQL Database Name",
+                                 "type":"string"
+                              },
+                              "postgresql_host":{
+                                 "title":"PostgreSQL Database Host",
+                                 "type":"string"
+                              },
+                              "postgresql_password":{
+                                 "default":"lenord",
+                                 "title":"PostgreSQL Password",
+                                 "type":"string"
+                              },
+                              "postgresql_port":{
+                                 "default":5432,
+                                 "title":"PostgreSQL Database Port",
+                                 "type":"integer"
+                              },
+                              "postgresql_schema":{
+                                 "default":"public",
+                                 "title":"PostgreSQL Database Schema Name",
+                                 "type":"string"
+                              },
+                              "postgresql_user":{
+                                 "default":"lenny",
+                                 "title":"PostgreSQL User",
+                                 "type":"string"
+                              }
+                           },
+                           "type":"object"
+                        }
+                     }
+                  }
+               }
+            }
+         ]
+      }
+   ]
+}
